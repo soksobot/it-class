@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-Класс | Информатика 7-9 класс</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="image/logotip.png" alt="IT Класс">
+                <h1>IT-Класс</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#lessons">Уроки</a></li>
+                    <li><a href="algorithms.html">Алгоритмы</a></li>
+                    <li><a href="web.html">Веб-разработка</a></li>
+                    <li><a href="#" class="login-btn" id="loginBtn">Войти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Модальное окно входа/регистрации -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Вход / Регистрация</h2>
+            <form id="authForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Войти</button>
+                <p id="toggleAuth">Нет аккаунта? Зарегистрироваться</p>
+            </form>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Информатика для 7-9 классов</h2>
+            <p>Изучайте программирование и алгоритмы в современном формате</p>
+            <a href="#lessons" class="btn">Начать обучение</a>
+        </div>
+    </section>
+
+    <section id="lessons" class="section">
+        <div class="container">
+            <h2 class="section-title">Уроки</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="image/logoalg.png" alt="Алгоритмы">
+                    <h3>Алгоритмы</h3>
+                    <p>Линейные, ветвления, циклы и другие структуры</p>
+                    <a href="algorithms.html" class="btn-small">Начать</a>
+                </div>
+                <div class="card">
+                    <img src="image/logoweb.png" alt="Веб-разработка">
+                    <h3>Веб-разработка</h3>
+                    <p>Основы HTML, CSS и JavaScript</p>
+                    <a href="web.html" class="btn-small">Начать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>IT-Класс</h3>
+                    <p>Образовательный проект для изучения информатики в 7-9 классах. Современный подход к обучению и пониманию материала.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#lessons">Уроки</a></li>
+                        <li><a href="algorithms.html">Алгоритмы</a></li>
+                        <li><a href="web.html">Веб-разработка</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p>aa.kachanov@mpgu.su</p>
+                    <div class="social-icons">
+                        <a href="https://vk.com/id164767379" target="_blank" title="Наша группа ВКонтакте">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://t.me/the_soks" target="_blank" title="Наш Telegram-канал">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IT-Класс. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
