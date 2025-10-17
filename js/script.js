@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Инициализация модального окна входа/регистрации
     function initAuthModal() {
         const loginBtn = document.getElementById('loginBtn');
         const authModal = document.getElementById('authModal');
@@ -58,22 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
             authModal.style.display = 'none';
         });
     }
-
-    // 2. Инициализация системы сортировки
     function initSortingSystem() {
-        // ... (весь код сортировки из предыдущего примера) ...
     }
 
-    // Инициализируем оба модуля
-    initAuthModal(); // Теперь будет работать на всех страницах
-    initSortingSystem(); // Только на странице алгоритмов
+    initAuthModal(); 
+    initSortingSystem();
 });
-// Глобальные переменные для управления анимацией
 let animationSpeed = 500;
 let isSorting = false;
 let animationId = null;
 
-// Инициализация массива и отрисовка
 function initArray() {
     const canvas = document.getElementById('sortCanvas');
     const ctx = canvas.getContext('2d');
@@ -89,7 +82,6 @@ function initArray() {
     return array;
 }
 
-// Функция отрисовки массива
 function drawArray(ctx, array, highlight1 = -1, highlight2 = -1) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     
@@ -108,8 +100,6 @@ function drawArray(ctx, array, highlight1 = -1, highlight2 = -1) {
         }
         
         ctx.fillRect(x, y, barWidth, barHeight);
-        
-        // Подписи значений
         ctx.fillStyle = '#333';
         ctx.font = '10px Arial';
         ctx.textAlign = 'center';
@@ -117,7 +107,6 @@ function drawArray(ctx, array, highlight1 = -1, highlight2 = -1) {
     }
 }
 
-// Функция задержки для анимации
 async function delay() {
     return new Promise(resolve => {
         if (animationId) clearTimeout(animationId);
@@ -125,7 +114,6 @@ async function delay() {
     });
 }
 
-// Алгоритмы сортировки
 const algorithms = {
     bubble: async function(array, ctx) {
         let n = array.length;
@@ -231,14 +219,11 @@ const algorithms = {
         await quickSort(0, array.length-1);
     }
 };
-
-// Инициализация страницы
 document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('sortCanvas');
     const ctx = canvas.getContext('2d');
     let array = initArray();
     
-    // Управление скоростью
     const speedControl = document.getElementById('speedControl');
     const speedValue = document.getElementById('speedValue');
     
@@ -251,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {value: 1000, label: "Очень медленно"}
         ];
         
-        animationSpeed = 1050 - this.value; // Инвертируем значение для более интуитивного управления
+        animationSpeed = 1050 - this.value; 
         
         const closest = speeds.reduce((prev, curr) => 
             Math.abs(curr.value - animationSpeed) < Math.abs(prev.value - animationSpeed) ? curr : prev
@@ -259,8 +244,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         speedValue.textContent = closest.label;
     });
-    
-    // Кнопка запуска сортировки
     document.getElementById('startSort').addEventListener('click', async function() {
         if (isSorting) return;
         
@@ -269,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('resetArray').disabled = true;
         
         const sortType = document.getElementById('sortType').value;
-        array = [...array]; // Создаем копию массива
+        array = [...array]; 
         
         try {
             await algorithms[sortType](array, ctx);
@@ -281,7 +264,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Кнопка сброса массива
     document.getElementById('resetArray').addEventListener('click', function() {
         if (isSorting) {
             isSorting = false;
